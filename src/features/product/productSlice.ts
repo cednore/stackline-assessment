@@ -35,17 +35,28 @@ export const fetchProductData = createAsyncThunk(
 
 const productSlice = createSlice({
 	name: 'product',
-	initialState,
+	initialState: {
+		loading: false,
+		...initialState,
+	},
 	reducers: {
 		// Reducer to set the product details
 		setProductDetails(state, action: PayloadAction<ProductDetails>) {
-			return action.payload;
+			const productDetails = action.payload;
+			return { ...state, ...productDetails };
 		},
 	},
 	extraReducers: (builder) => {
-		builder.addCase(fetchProductData.fulfilled, (state, action) => {
-			return { ...state, ...action.payload.data };
-		});
+		builder
+			.addCase(fetchProductData.pending, (state) => {
+				state.loading = true;
+			})
+			.addCase(fetchProductData.fulfilled, (state, action) => {
+				return { ...state, ...action.payload.data, loading: false };
+			})
+			.addCase(fetchProductData.rejected, (state) => {
+				state.loading = false;
+			});
 	},
 });
 

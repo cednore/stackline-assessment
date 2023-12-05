@@ -5,8 +5,6 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux';
 import store from './app/store';
-import productData from './assets/data/productData.json';
-import { setProductDetails } from './features/product/productSlice';
 
 const root = ReactDOM.createRoot(
 	document.getElementById('root') as HTMLElement

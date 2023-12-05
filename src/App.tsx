@@ -4,16 +4,22 @@ import Header from './components/Header/Header';
 import ProductReview from './components/ProductReview/ProductReview';
 import RetailSales from './components/RetailSales/RetailSales';
 import ProductDetails from './components/ProductDetails/ProductDetails';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { fetchProductData } from './features/product/productSlice';
-import { AppDispatch } from './app/store';
+import { AppDispatch, RootState } from './app/store';
 
 const App: React.FC = () => {
 	const dispatch = useDispatch<AppDispatch>();
+	const { loading } = useSelector((state: RootState) => state.product);
 
 	useEffect(() => {
 		dispatch(fetchProductData());
 	}, [dispatch]);
+
+	if (loading) {
+		return <div className={styles.loading}>Loading...</div>;
+	}
+
 	return (
 		<div className={styles.App}>
 			<Header />

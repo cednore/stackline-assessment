@@ -4,6 +4,11 @@
 	height: 100vh;
 }
 
+.loading {
+	text-align: center;
+	font-size: 2rem;
+}
+
 .mainContainer {
 	box-sizing: border-box;
 	display: flex;

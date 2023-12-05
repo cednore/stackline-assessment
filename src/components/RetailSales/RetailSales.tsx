@@ -7,7 +7,31 @@ import { useAppSelector } from '../../app/hooks';
 import { getSalesDataByDay } from '../../utils/salesDataUtils';
 import styles from './RetailSales.module.css';
 
+const verticalLinePlugin = {
+	id: 'verticalLinePlugin',
+	afterDraw: (chart: any) => {
+		if (chart.tooltip._active && chart.tooltip._active.length) {
+			const ctx = chart.ctx;
+			const x = chart.tooltip._active[0].element.x;
+			const topY = chart.scales.y.top;
+			const bottomY = chart.scales.y.bottom;
+
+			// draw line
+			ctx.save();
+			ctx.beginPath();
+			ctx.moveTo(x, topY);
+			ctx.lineTo(x, bottomY);
+			ctx.lineWidth = 1;
+			ctx.setLineDash([5, 5]);
+			ctx.strokeStyle = '#007bff';
+			ctx.stroke();
+			ctx.restore();
+		}
+	},
+};
+
 ChartJS.register(...registerables);
+ChartJS.register(verticalLinePlugin);
 
 const RetailSales: React.FC = () => {
 	const salesData = useAppSelector((state) => state.product.sales);
@@ -44,6 +68,10 @@ const RetailSales: React.FC = () => {
 				radius: 3,
 			},
 		},
+		animation: {
+			duration: 1000,
+			easing: 'easeOutQuart',
+		},
 		scales: {
 			x: {
 				offset: true,
@@ -77,7 +105,7 @@ const RetailSales: React.FC = () => {
 		},
 		interaction: {
 			intersect: false,
-			mode: 'nearest',
+			mode: 'index',
 		},
 		maintainAspectRatio: false,
 	};
