@@ -8,8 +8,6 @@ import store from './app/store';
 import productData from './assets/data/productData.json';
 import { setProductDetails } from './features/product/productSlice';
 
-store.dispatch(setProductDetails(productData));
-
 const root = ReactDOM.createRoot(
 	document.getElementById('root') as HTMLElement
 );
