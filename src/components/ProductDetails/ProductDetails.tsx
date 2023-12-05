@@ -51,14 +51,14 @@ const ProductDetails: React.FC = () => {
 					<tr>
 						{Object.keys(TABLE_HEADERS).map((key) => (
 							<th key={key} onClick={() => requestSort(key as keyof SalesData)}>
-								{TABLE_HEADERS[key as keyof typeof TABLE_HEADERS]}
 								<span>
 									{sortConfig?.key === key
 										? sortConfig.direction === 'ascending'
 											? ' ↓'
 											: ' ↑'
-										: ' •'}
+										: ' ⇵'}
 								</span>
+								{TABLE_HEADERS[key as keyof typeof TABLE_HEADERS]}
 							</th>
 						))}
 					</tr>

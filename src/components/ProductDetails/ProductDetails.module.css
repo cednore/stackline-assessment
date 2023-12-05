@@ -10,7 +10,6 @@ table {
 	width: 100%;
 	overflow: scroll;
 	border-collapse: collapse;
-	text-align: left;
 	table-layout: fixed;
 }
 
@@ -29,11 +28,15 @@ th {
 	z-index: 10;
 	position: sticky;
 	top: 0;
+	overflow: hidden;
 	border-bottom: 2px solid #eaeaea;
 	background-color: white;
 	color: #333;
 	font-size: 0.75rem;
 	font-weight: normal;
+	direction: rtl;
+	text-overflow: ellipsis;
+	white-space: nowrap;
 	cursor: pointer;
 }
 
