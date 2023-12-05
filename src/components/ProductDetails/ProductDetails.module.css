@@ -40,8 +40,11 @@ th {
 	cursor: pointer;
 }
 
+th span {
+	font-family: monospace;
+}
+
 td {
-	padding-right: 25px;
 	border-bottom: 1px solid #eaeaea;
 	color: #97a7bb;
 	font-size: 0.75rem;

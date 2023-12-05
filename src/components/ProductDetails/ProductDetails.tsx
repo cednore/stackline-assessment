@@ -54,9 +54,9 @@ const ProductDetails: React.FC = () => {
 								<span>
 									{sortConfig?.key === key
 										? sortConfig.direction === 'ascending'
-											? ' ↓'
-											: ' ↑'
-										: ' ⇵'}
+											? '↓\u00A0'
+											: '↑\u00A0'
+										: '⇵\u00A0'}
 								</span>
 								{TABLE_HEADERS[key as keyof typeof TABLE_HEADERS]}
 							</th>
