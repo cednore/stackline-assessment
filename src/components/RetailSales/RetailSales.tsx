@@ -73,7 +73,6 @@ const RetailSales: React.FC = () => {
 				grid: {
 					display: false,
 				},
-				// beginAtZero: true,
 			},
 		},
 		interaction: {
