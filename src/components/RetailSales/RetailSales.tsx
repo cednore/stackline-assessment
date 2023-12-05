@@ -13,7 +13,7 @@ const RetailSales: React.FC = () => {
 	const salesData = useAppSelector((state) => state.product.sales);
 
 	// Use useMemo to avoid recalculating on every render unless salesData changes
-	const { labels, retailSales, wholesaleSales } = useMemo(
+	const { labels, retailSales, wholesaleSales, maxSales, minSales } = useMemo(
 		() => getSalesDataByDay(salesData),
 		[salesData]
 	);
@@ -66,12 +66,14 @@ const RetailSales: React.FC = () => {
 				},
 			},
 			y: {
+				max: maxSales + (maxSales - minSales) / 2,
+				min: minSales - (maxSales - minSales) / 2,
 				offset: true,
 				display: false,
 				grid: {
 					display: false,
 				},
-				beginAtZero: true,
+				// beginAtZero: true,
 			},
 		},
 		interaction: {
