@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { ProductDetails } from '../../types';
 
-// Initial state is typed to ProductDetails interface
+// Initial state for ProductDetails
 const initialState: ProductDetails = {
 	id: '',
 	title: '',
