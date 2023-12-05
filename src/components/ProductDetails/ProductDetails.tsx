@@ -58,7 +58,7 @@ const ProductDetails: React.FC = () => {
 										? sortConfig.direction === 'ascending'
 											? ' ↓'
 											: ' ↑'
-										: ''}
+										: ' •'}
 								</span>
 							</th>
 						))}
@@ -68,10 +68,10 @@ const ProductDetails: React.FC = () => {
 					{sortedSalesData.map((sale, index) => (
 						<tr key={index}>
 							<td>{sale.weekEnding}</td>
-							<td>{sale.retailSales.toLocaleString()}</td>
-							<td>{sale.wholesaleSales.toLocaleString()}</td>
-							<td>{sale.unitsSold.toLocaleString()}</td>
-							<td>{sale.retailerMargin.toLocaleString()}</td>
+							<td>{`$${sale.retailSales.toLocaleString()}`}</td>
+							<td>{`$${sale.wholesaleSales.toLocaleString()}`}</td>
+							<td>{`${sale.unitsSold.toLocaleString()}`}</td>
+							<td>{`$${sale.retailerMargin.toLocaleString()}`}</td>
 						</tr>
 					))}
 				</tbody>

@@ -39,11 +39,23 @@ const RetailSales: React.FC = () => {
 	};
 
 	const options: ChartOptions<'line'> = {
+		elements: {
+			point: {
+				radius: 3,
+			},
+		},
 		scales: {
 			x: {
-				type: 'time', // 'time' as a string literal
+				offset: true,
+				border: {
+					display: false,
+				},
+				grid: {
+					display: false,
+				},
+				type: 'time',
 				time: {
-					unit: 'month', // 'month' as a string literal
+					unit: 'month',
 					displayFormats: {
 						month: 'MMM',
 					},
@@ -54,8 +66,17 @@ const RetailSales: React.FC = () => {
 				},
 			},
 			y: {
+				offset: true,
+				display: false,
+				grid: {
+					display: false,
+				},
 				beginAtZero: true,
 			},
+		},
+		interaction: {
+			intersect: false,
+			mode: 'nearest',
 		},
 		maintainAspectRatio: false,
 	};

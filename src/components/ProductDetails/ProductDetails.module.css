@@ -1,14 +1,14 @@
 .productDetails {
-	flex: 2;
-	min-width: 400px;
-	min-height: 400px;
-	overflow-y: auto;
+	flex: 1 1;
+	min-height: 200px;
+	overflow: auto;
 	background-color: #fff;
 	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 table {
 	width: 100%;
+	overflow: scroll;
 	border-collapse: collapse;
 	text-align: left;
 	table-layout: fixed;
@@ -32,12 +32,16 @@ th {
 	border-bottom: 2px solid #eaeaea;
 	background-color: white;
 	color: #333;
+	font-size: 0.75rem;
 	font-weight: normal;
 	cursor: pointer;
 }
 
 td {
+	padding-right: 25px;
 	border-bottom: 1px solid #eaeaea;
+	color: #97a7bb;
+	font-size: 0.75rem;
 }
 
 tbody tr:hover {
