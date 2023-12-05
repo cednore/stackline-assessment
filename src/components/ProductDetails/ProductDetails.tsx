@@ -28,7 +28,6 @@ const ProductDetails: React.FC = () => {
 				return 0;
 			});
 		}
-		console.log(sortableItems);
 		return sortableItems;
 	}, [salesData, sortConfig]);
 
