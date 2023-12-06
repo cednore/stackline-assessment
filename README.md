@@ -1,5 +1,8 @@
 # Product Sales Review Page
 
+## Live Demo
+https://phillip-stackline-assessment.netlify.app/
+
 ## Project Details
 
 This project is built using industry-standard technologies and best practices.
